@@ -7,7 +7,7 @@ Neural network using C++ to classify digits from the MNIST dataset
 <br>
 Dataset: MNIST dataset of torchvision (28x28 pixel images)
 <p align="center">
-    <img src="images/Screenshot 2026-05-03 000514.png" height=300 width=300>
+    <img src="images/image.png" height=300 width=300>
     <img src="images/Screenshot 2026-05-03 001433.png" height=300 width=300>
 </p>
 
@@ -33,3 +33,7 @@ Dataset: MNIST dataset of torchvision (28x28 pixel images)
 4.  Loss: Cross Entropy
 5.  Backpropagation to update weights
 6.  Save weight in **lmao.bin**
+
+# Reference
+
+- https://github.com/Magicalbat/videos/tree/main/machine-learning

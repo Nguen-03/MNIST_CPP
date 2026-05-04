@@ -16,7 +16,7 @@ int main(){
 	read_binary_images("dataset/val.idx", val, 500, 28, 28);
 	clock_t begin = clock();
 	
-	model->train(train, val, 16, 30, "lmao.bin");
+	model->train(train, val, 16, 10, "lmao.bin");
 	clock_t end = clock();
 	double time_taken = double(end - begin) / CLOCKS_PER_SEC;
 

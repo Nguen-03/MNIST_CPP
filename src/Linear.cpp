@@ -46,7 +46,7 @@ Vector3D Linear::backward(Vector3D &grads){
 
     for (int i = 0; i < in_features; ++i)
         for (int j = 0; j < out_features; ++j)
-            dInput.at(0, 0, j) += grads.at(0, 0, j) * W.at(i, j);
+            dInput.at(0, 0, i) += grads.at(0, 0, j) * W.at(i, j);
 
     for (int i = 0; i < in_features; ++i)
         for (int j = 0; j < out_features; ++j)

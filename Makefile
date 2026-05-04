@@ -16,8 +16,11 @@ train: train.o $(CORE_OBJS)
 predict: predict.o $(CORE_OBJS)
 	$(CXX) $(CXXFLAGS) -o predict.exe $^
 
+build:
+	mkdir build
+
 # Quy tắc biên dịch file .cpp thành .o
-build/%.o: src/%.cpp
+build/%.o: src/%.cpp | build
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

@@ -72,7 +72,7 @@ double CNN::evaluate(vector<pair<int, Vector3D>> &data){
 
     int data_size = data.size();
     int correct = 0;
-    #pragma omp parallel for
+        // #pragma omp parallel for
     for (int i = 0; i < data_size; ++i){
         Vector3D out = this->forward(data[i].second);
         int predict = 0;
@@ -97,10 +97,10 @@ void CNN::train(vector<pair<int, Vector3D>> &train, vector<pair<int, Vector3D>> 
     ios_base::sync_with_stdio(false);
     cout.tie(NULL);
     int train_size = train.size();
-    double lr = 0.0005;
+    double lr = 0.005;
     double best_accuracy = 0.0;
     
-    #pragma omp parallel for
+
     for (int e = 0; e < epochs; ++e){
         double epoch_loss = 0.0;
 
@@ -117,16 +117,16 @@ void CNN::train(vector<pair<int, Vector3D>> &train, vector<pair<int, Vector3D>> 
                 Vector3D grads = this->criterion.backward();
                 this->backward(grads);
 
-                cout << "\rEPOCH: " << e + 1 << "/" << epochs << ": " << "Batch: " << j / batch_size << "/" << ceil(train_size / batch_size) << flush;
+                cout << "\rEPOCH: " << e + 1 << "/" << epochs << ": " << "Batch: " << i / batch_size << "/" << ceil(train_size / batch_size) << flush;
                 cout << "\033[?25l";
                 
             }//end 1 batch
 
-            this->update(lr);
+            this->update(lr / riel_batch_size);
 
         }//end all batches (1 epoch)
 
-        if ((e + 1) % 10 == 0)
+        if ((e + 1) % 5 == 0)
             lr /= 2;
         
         double accuracy = this->evaluate(val);

@@ -46,7 +46,7 @@ Vector3D Conv2D::forward(Vector3D &input){
 
 
 
-#pragma omp parallel for collapse(3)
+    #pragma omp parallel for collapse(3)
     for (int o = 0; o < this->out_channel; ++o){
         for (int r = 0; r < out_size; ++r){
             for (int c = 0; c < out_size; ++c){
@@ -98,6 +98,7 @@ Vector3D Conv2D::backward(Vector3D &grads){
 
 void Conv2D::update(double lr){
 
+    #pragma omp parallel for collapse(4)
     for (int out = 0; out < this->out_channel; ++out)
         for (int in = 0; in < this->in_channel; ++in)
             for (int row = 0; row < this->kernel_size; ++row)
@@ -111,7 +112,7 @@ void Conv2D::update(double lr){
 
     for (int out = 0; out < this->out_channel; ++out){
         double grad = this->db[out];
-        this->bias[out] -= lr * this->db[out];
+        this->bias[out] -= lr * grad;
     }
 }
 
