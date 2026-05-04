@@ -9,9 +9,9 @@ CNN::CNN(){
         new ReLU(),
         new MaxPool(2, 2),
         new Flatten(),
-        new Linear(32 * 5 * 5, 128, false),
+        new Linear(32 * 5 * 5, 128),
         new ReLU(),
-        new Linear(128, 10, false)
+        new Linear(128, 10)
     };
 
 }
@@ -97,7 +97,7 @@ void CNN::train(vector<pair<int, Vector3D>> &train, vector<pair<int, Vector3D>> 
     ios_base::sync_with_stdio(false);
     cout.tie(NULL);
     int train_size = train.size();
-    double lr = 0.005;
+    double lr = 0.01;
     double best_accuracy = 0.0;
     
 
@@ -126,7 +126,7 @@ void CNN::train(vector<pair<int, Vector3D>> &train, vector<pair<int, Vector3D>> 
 
         }//end all batches (1 epoch)
 
-        if ((e + 1) % 5 == 0)
+        if ((e + 1) % 10 == 0)
             lr /= 2;
         
         double accuracy = this->evaluate(val);
