@@ -126,7 +126,7 @@ void CNN::train(vector<pair<int, Vector3D>> &train, vector<pair<int, Vector3D>> 
 
         }//end all batches (1 epoch)
 
-        if ((e + 1) % 10 == 0)
+        if ((e + 1) % 5 == 0)
             lr /= 2;
         
         double accuracy = this->evaluate(val);
