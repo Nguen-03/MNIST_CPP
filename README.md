@@ -8,7 +8,7 @@ Neural network using C++ to classify digits from the MNIST dataset
 Dataset: MNIST dataset of torchvision (28x28 pixel images)
 <p align="center">
     <img src="images/image.png" height=300 width=300>
-    <img src="images/Screenshot 2026-05-03 001433.png" height=300 width=300>
+    <img src="images/image1.png" height=300 width=300>
 </p>
 
 ## :gear: Installation and Usage
