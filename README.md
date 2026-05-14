@@ -29,7 +29,7 @@ Dataset: MNIST dataset of torchvision (28x28 pixel images)
 
 1.  Input image (28x28) → flatten to vector (784)
 2.  Forward pass through hidden layers
-3.  (6)Output layer with Softmax
+3.  Output layer with Softmax
 4.  Loss: Cross Entropy
 5.  Backpropagation to update weights
 6.  Save weight to **lmao.bin**
